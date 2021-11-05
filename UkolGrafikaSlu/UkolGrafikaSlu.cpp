@@ -28,7 +28,6 @@ void drawLineDDA(double x0, double y0, double x1, double y1, SDL_Renderer* rende
 	double x, y, i, dx, dy, XP, YP, steps;
 	int MX, MY;
 	
-
 	dx = getD(x0, x1);
 	dy = getD(y0, y1);
 	if (!dx && !dy) {
@@ -81,8 +80,6 @@ void drawCircleUsingLines(double r, SDL_Renderer *renderer) {
 	double y0 = (r * sinAlpha);
 	double x1 = 0.0, y1 = 0.0;
 
-	SDL_RenderDrawPoint(renderer, round(x0), round(y0));
-
 	for (double angle = alpha; angle < 2 * M_PI; angle += alpha) {
 		x1 = (x0 * cosAlpha) - (y0 * sinAlpha);
 		y1 = (x0 * sinAlpha) + (y0 * cosAlpha);
@@ -110,7 +107,7 @@ int main(int argc, char** args) {
 	}
 
 	SDL_CreateWindowAndRenderer(WINDOW_WIDTH, WINDOW_HEIGHT, 0, &window, &renderer);
-	SDL_SetWindowTitle(window, "PS-SLU-LineDrawer");
+	SDL_SetWindowTitle(window, "PS-SLU-CircleLineDrawer");
 	SDL_SetWindowPosition(window, WINDOW_POSITION_X, WINDOW_POSITION_Y);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 	SDL_RenderClear(renderer);
@@ -124,7 +121,7 @@ int main(int argc, char** args) {
 		std::cin >> r;
 	} while (!r);
 
-	std::cout << "Vykresluji kruznici na zaklade polomeru r " << r << " a prirustku alfa " << (1/r)  << " °." << std::endl;
+	std::cout << "Vykresluji kruznici na zaklade polomeru r " << r << " a prirustku alfa (1/r) " << (1/r)  << " ." << std::endl;
 	std::cout << std::endl;
 	drawCircleUsingLines(r, renderer);
 
