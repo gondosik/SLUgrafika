@@ -1,0 +1,10 @@
+﻿################################################################################
+# Tento soubor .gitignore byl automaticky vytvořen aplikací Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Debug
+/UkolGrafikaSlu/Debug/UkolGrafikaSlu.tlog
+/UkolGrafikaSlu/Debug/UkolGrafikaSlu_2.tlog
+/UkolGrafikaSlu/Debug
+/UkolGrafikaSlu/SDL2-2.0.16
