@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <SDL.h>
+#define _USE_MATH_DEFINES
 #include <cmath>
 #include <windows.h>
 
@@ -60,7 +61,7 @@ void drawLineDDA(double x0, double y0, double x1, double y1, SDL_Renderer* rende
 	for(int i = 0; i <= steps; i++)
 	{
 		SDL_RenderDrawPoint(renderer, round(x), round(y));
-		Sleep(10);
+		Sleep(2);
 		if (MX > 0)
 			x++;
 		else
@@ -80,7 +81,9 @@ void drawCircleUsingLines(double r, SDL_Renderer *renderer) {
 	double y0 = (r * sinAlpha);
 	double x1 = 0.0, y1 = 0.0;
 
-	for (double angle = alpha; angle < 90.0; angle += alpha) {
+	SDL_RenderDrawPoint(renderer, round(x0), round(y0));
+
+	for (double angle = alpha; angle < 2 * M_PI; angle += alpha) {
 		x1 = (x0 * cosAlpha) - (y0 * sinAlpha);
 		y1 = (x0 * sinAlpha) + (y0 * cosAlpha);
 	    drawLineDDA(x0 + circleXcenter, y0 + circleYcenter, x1 + circleXcenter, y1 + circleYcenter, renderer);
